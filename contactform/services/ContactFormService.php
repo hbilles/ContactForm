@@ -44,7 +44,7 @@ class ContactFormService extends BaseApplicationComponent
 					$email->fromName  = $settings->prependSender . ($settings->prependSender && $message->fromName ? ' ' : '') . $message->fromName;
 					$email->toEmail   = $toEmail;
 					$email->subject   = $settings->prependSubject . ($settings->prependSubject && $message->subject ? ' - ' : '') . $message->subject;
-					$email->body      = $message->message;
+					$email->body      = 'From: ' . $message->fromName . PHP_EOL . PHP_EOL . 'Email: ' . $message->fromEmail . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . $message->message;
 
 					if ($message->attachment)
 					{
